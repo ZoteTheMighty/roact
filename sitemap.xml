@@ -28,37 +28,29 @@
     
         
     <url>
-     <loc>/guide/elements-components/</loc>
+     <loc>/concepts/elements-components/</loc>
      <lastmod>2018-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/guide/props-and-state/</loc>
+     <loc>/concepts/props-and-state/</loc>
      <lastmod>2018-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/guide/lifecycle/</loc>
+     <loc>/concepts/lifecycle/</loc>
      <lastmod>2018-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/guide/usage-with-rodux/</loc>
+     <loc>/concepts/usage-with-rodux/</loc>
      <lastmod>2018-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
-    
-
-    
-    <url>
-     <loc>/api-reference/</loc>
-     <lastmod>2018-02-27</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
     
 
     
@@ -99,6 +91,14 @@
      <changefreq>daily</changefreq>
     </url>
         
+    
+
+    
+    <url>
+     <loc>/api-reference/</loc>
+     <lastmod>2018-02-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
     
 
 </urlset>

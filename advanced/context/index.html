@@ -11,6 +11,8 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
+        <link rel="canonical" href="https://roblox.github.io/roact/advanced/context/">
+      
       
       
         <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -36,7 +38,7 @@
     
     
       
-        <title>Hello, Roact! - Roact Documentation</title>
+        <title>Context - Roact Documentation</title>
       
     
     
@@ -56,6 +58,8 @@
       
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
+    
+      <link rel="stylesheet" href="../../css/component-diagram.css">
     
     
   </head>
@@ -93,7 +97,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#hello-roact" tabindex="1" class="md-skip">
+      <a href="#context" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -102,7 +106,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="Roact Documentation" class="md-header-nav__button md-logo">
+        <a href="https://roblox.github.io/roact/" title="Roact Documentation" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -119,7 +123,7 @@
                 Roact Documentation
               </span>
               <span class="md-header-nav__topic">
-                Hello, Roact!
+                Context
               </span>
             
           
@@ -247,40 +251,16 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="../../what-is-roact/" title="What is Roact?" class="md-nav__link">
-      What is Roact?
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../getting-started/" title="Getting Started" class="md-nav__link">
-      Getting Started
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
-    <label class="md-nav__link" for="nav-4">
-      Concepts
+    <label class="md-nav__link" for="nav-2">
+      Guide
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
-        Concepts
+      <label class="md-nav__title" for="nav-2">
+        Guide
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -291,8 +271,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../concepts/elements-components/" title="Elements and Components" class="md-nav__link">
-      Elements and Components
+    <a href="../../guide/installation/" title="Installation" class="md-nav__link">
+      Installation
     </a>
   </li>
 
@@ -303,8 +283,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../concepts/props-and-state/" title="Props and State" class="md-nav__link">
-      Props and State
+    <a href="../../guide/hello-roact/" title="Hello, Roact!" class="md-nav__link">
+      Hello, Roact!
     </a>
   </li>
 
@@ -315,8 +295,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../concepts/lifecycle/" title="Lifecycle of Components" class="md-nav__link">
-      Lifecycle of Components
+    <a href="../../guide/elements/" title="Elements" class="md-nav__link">
+      Elements
     </a>
   </li>
 
@@ -327,8 +307,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../../concepts/usage-with-rodux/" title="Usage with Rodux" class="md-nav__link">
-      Usage with Rodux
+    <a href="../../guide/components/" title="Components" class="md-nav__link">
+      Components
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/state-and-lifecycle/" title="State and Lifecycle" class="md-nav__link">
+      State and Lifecycle
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/events/" title="Events" class="md-nav__link">
+      Events
     </a>
   </li>
 
@@ -347,14 +351,14 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
-    <label class="md-nav__link" for="nav-5">
-      Examples
+    <label class="md-nav__link" for="nav-3">
+      Advanced Concepts
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        Examples
+      <label class="md-nav__title" for="nav-3">
+        Advanced Concepts
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -363,55 +367,10 @@
           
           
 
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-    <a href="./" title="Hello, Roact!" class="md-nav__link md-nav__link--active">
-      Hello, Roact!
-    </a>
-    
-  </li>
-
-        
-          
-          
-          
-
 
   <li class="md-nav__item">
-    <a href="../counter/" title="Stateful Counter" class="md-nav__link">
-      Stateful Counter
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../events/" title="Events, the Roact Way" class="md-nav__link">
-      Events, the Roact Way
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../teardown/" title="Tearing Down Components" class="md-nav__link">
-      Tearing Down Components
+    <a href="../portals/" title="Portals" class="md-nav__link">
+      Portals
     </a>
   </li>
 
@@ -432,11 +391,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../roact-rodux/" title="Roact with Rodux" class="md-nav__link">
-      Roact with Rodux
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+    <a href="./" title="Context" class="md-nav__link md-nav__link--active">
+      Context
     </a>
+    
   </li>
 
         
@@ -484,77 +452,15 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/Roblox/roact/edit/master/docs/examples/hello-roact.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/Roblox/roact/edit/master/docs/advanced/context.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="hello-roact">Hello, Roact!<a class="headerlink" href="#hello-roact" title="Permanent link">&para;</a></h1>
-<p>This sample creates a full-screen <code>TextLabel</code> with a greeting:</p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">Players</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">)</span>
-<span class="kd">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
-
-<span class="kd">local</span> <span class="n">Roact</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">.</span><span class="n">Roact</span><span class="p">)</span>
-
-<span class="c1">-- Define a functional component</span>
-<span class="kd">local</span> <span class="kr">function</span> <span class="nf">HelloComponent</span><span class="p">()</span>
-    <span class="cm">--[[</span>
-<span class="cm">        createElement takes three arguments:</span>
-<span class="cm">            * The component that this element represents</span>
-<span class="cm">            * Optional: a list of properties to provide</span>
-<span class="cm">            * Optional: a dictionary of children -- the key is that child&#39;s Name</span>
-<span class="cm">    ]]</span>
-
-    <span class="kr">return</span> <span class="n">Roact</span><span class="p">.</span><span class="n">createElement</span><span class="p">(</span><span class="s2">&quot;ScreenGui&quot;</span><span class="p">,</span> <span class="p">{</span>
-    <span class="p">},</span> <span class="p">{</span>
-        <span class="n">MainLabel</span> <span class="o">=</span> <span class="n">Roact</span><span class="p">.</span><span class="n">createElement</span><span class="p">(</span><span class="s2">&quot;TextLabel&quot;</span><span class="p">,</span> <span class="p">{</span>
-            <span class="n">Text</span> <span class="o">=</span> <span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
-            <span class="n">Size</span> <span class="o">=</span> <span class="n">UDim2</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
-        <span class="p">}),</span>
-    <span class="p">})</span>
-<span class="kr">end</span>
-
-<span class="c1">-- Create our virtual tree</span>
-<span class="kd">local</span> <span class="n">element</span> <span class="o">=</span> <span class="n">Roact</span><span class="p">.</span><span class="n">createElement</span><span class="p">(</span><span class="n">HelloComponent</span><span class="p">)</span>
-
-<span class="cm">--[[</span>
-<span class="cm">    `reify` turns our virtual tree into real instances and puts the top-most one</span>
-<span class="cm">    in PlayerGui</span>
-
-<span class="cm">    reify takes three arguments:</span>
-<span class="cm">        * The element we&#39;re trying to reify</span>
-<span class="cm">        * Optionally, the Roblox Instance to put the result into</span>
-<span class="cm">        * Optionally, what to name the root element we create</span>
-<span class="cm">]]</span>
-<span class="n">Roact</span><span class="p">.</span><span class="n">reify</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">Players</span><span class="p">.</span><span class="n">LocalPlayer</span><span class="p">.</span><span class="n">PlayerGui</span><span class="p">,</span> <span class="s2">&quot;HelloWorld&quot;</span><span class="p">)</span>
-</pre></div>
-
-
-<p>We can also write this example using a <em>stateful</em> component.</p>
-<p>This example behaves exactly the same as the functional one above:</p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">Players</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">)</span>
-<span class="kd">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
-
-<span class="kd">local</span> <span class="n">Roact</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">.</span><span class="n">Roact</span><span class="p">)</span>
-
-<span class="c1">-- Create a component type, just like the functional component above</span>
-<span class="kd">local</span> <span class="n">HelloComponent</span> <span class="o">=</span> <span class="n">Roact</span><span class="p">.</span><span class="n">Component</span><span class="p">:</span><span class="n">extend</span><span class="p">(</span><span class="s2">&quot;HelloComponent&quot;</span><span class="p">)</span>
-
-<span class="c1">-- &#39;render&#39; MUST be overridden.</span>
-<span class="kr">function</span> <span class="nc">HelloComponent</span><span class="p">:</span><span class="nf">render</span><span class="p">()</span>
-    <span class="kr">return</span> <span class="n">Roact</span><span class="p">.</span><span class="n">createElement</span><span class="p">(</span><span class="s2">&quot;ScreenGui&quot;</span><span class="p">,</span> <span class="p">{</span>
-    <span class="p">},</span> <span class="p">{</span>
-        <span class="n">MainLabel</span> <span class="o">=</span> <span class="n">Roact</span><span class="p">.</span><span class="n">createElement</span><span class="p">(</span><span class="s2">&quot;TextLabel&quot;</span><span class="p">,</span> <span class="p">{</span>
-            <span class="n">Text</span> <span class="o">=</span> <span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
-            <span class="n">Size</span> <span class="o">=</span> <span class="n">UDim2</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
-        <span class="p">}),</span>
-    <span class="p">})</span>
-<span class="kr">end</span>
-
-<span class="c1">-- Create our virtual tree</span>
-<span class="kd">local</span> <span class="n">element</span> <span class="o">=</span> <span class="n">Roact</span><span class="p">.</span><span class="n">createElement</span><span class="p">(</span><span class="n">HelloComponent</span><span class="p">)</span>
-
-<span class="c1">-- Turn our virtual tree into real instances and put them in PlayerGui</span>
-<span class="n">Roact</span><span class="p">.</span><span class="n">reify</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">Players</span><span class="p">.</span><span class="n">LocalPlayer</span><span class="p">.</span><span class="n">PlayerGui</span><span class="p">,</span> <span class="s2">&quot;HelloWorld&quot;</span><span class="p">)</span>
-</pre></div>
+                <h1 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Context is an unstable feature that's being <em>significantly</em> revised. See <a href="https://github.com/Roblox/roact/issues/4">issue #4</a> for current progress.</p>
+</div>
+<p><strong>TODO!</strong></p>
                 
                   
                 
@@ -573,7 +479,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../concepts/usage-with-rodux/" title="Usage with Rodux" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../refs/" title="Refs" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -582,19 +488,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Usage with Rodux
+                Refs
               </span>
             </div>
           </a>
         
         
-          <a href="../counter/" title="Stateful Counter" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../api-reference/" title="API Reference" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Stateful Counter
+                API Reference
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

@@ -11,6 +11,8 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
+        <link rel="canonical" href="https://roblox.github.io/roact/guide/elements/">
+      
       
       
         <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -31,22 +33,22 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.6.6">
     
     
       
-        <title>Getting Started - Roact Documentation</title>
+        <title>Elements - Roact Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.78aab2dc.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.78aab2dc.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/application-palette.6079476c.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.6079476c.css">
       
     
     
-      <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
     
     
       <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -56,6 +58,8 @@
       
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
+    
+      <link rel="stylesheet" href="../../css/component-diagram.css">
     
     
   </head>
@@ -93,7 +97,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#getting-started" tabindex="1" class="md-skip">
+      <a href="#elements" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -102,7 +106,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href=".." title="Roact Documentation" class="md-header-nav__button md-logo">
+        <a href="https://roblox.github.io/roact/" title="Roact Documentation" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -119,7 +123,7 @@
                 Roact Documentation
               </span>
               <span class="md-header-nav__topic">
-                Getting Started
+                Elements
               </span>
             
           
@@ -236,20 +240,8 @@
 
 
   <li class="md-nav__item">
-    <a href=".." title="Home" class="md-nav__link">
+    <a href="../.." title="Home" class="md-nav__link">
       Home
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../what-is-roact/" title="What is Roact?" class="md-nav__link">
-      What is Roact?
     </a>
   </li>
 
@@ -261,35 +253,16 @@
   
 
 
-  <li class="md-nav__item md-nav__item--active">
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
-      
-    
-    
-    <a href="./" title="Getting Started" class="md-nav__link md-nav__link--active">
-      Getting Started
-    </a>
-    
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
-    
-    <label class="md-nav__link" for="nav-4">
-      Concepts
+    <label class="md-nav__link" for="nav-2">
+      Guide
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
-        Concepts
+      <label class="md-nav__title" for="nav-2">
+        Guide
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -300,8 +273,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../concepts/elements-components/" title="Elements and Components" class="md-nav__link">
-      Elements and Components
+    <a href="../installation/" title="Installation" class="md-nav__link">
+      Installation
     </a>
   </li>
 
@@ -312,8 +285,41 @@
 
 
   <li class="md-nav__item">
-    <a href="../concepts/props-and-state/" title="Props and State" class="md-nav__link">
-      Props and State
+    <a href="../hello-roact/" title="Hello, Roact!" class="md-nav__link">
+      Hello, Roact!
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+    <a href="./" title="Elements" class="md-nav__link md-nav__link--active">
+      Elements
+    </a>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../components/" title="Components" class="md-nav__link">
+      Components
     </a>
   </li>
 
@@ -324,8 +330,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../concepts/lifecycle/" title="Lifecycle of Components" class="md-nav__link">
-      Lifecycle of Components
+    <a href="../state-and-lifecycle/" title="State and Lifecycle" class="md-nav__link">
+      State and Lifecycle
     </a>
   </li>
 
@@ -336,8 +342,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../concepts/usage-with-rodux/" title="Usage with Rodux" class="md-nav__link">
-      Usage with Rodux
+    <a href="../events/" title="Events" class="md-nav__link">
+      Events
     </a>
   </li>
 
@@ -354,14 +360,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
-    <label class="md-nav__link" for="nav-5">
-      Examples
+    <label class="md-nav__link" for="nav-3">
+      Advanced Concepts
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        Examples
+      <label class="md-nav__title" for="nav-3">
+        Advanced Concepts
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -372,8 +378,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../examples/hello-roact/" title="Hello, Roact!" class="md-nav__link">
-      Hello, Roact!
+    <a href="../../advanced/portals/" title="Portals" class="md-nav__link">
+      Portals
     </a>
   </li>
 
@@ -384,43 +390,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../examples/counter/" title="Stateful Counter" class="md-nav__link">
-      Stateful Counter
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../examples/events/" title="Events, the Roact Way" class="md-nav__link">
-      Events, the Roact Way
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../examples/teardown/" title="Tearing Down Components" class="md-nav__link">
-      Tearing Down Components
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../examples/refs/" title="Refs" class="md-nav__link">
+    <a href="../../advanced/refs/" title="Refs" class="md-nav__link">
       Refs
     </a>
   </li>
@@ -432,8 +402,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../examples/roact-rodux/" title="Roact with Rodux" class="md-nav__link">
-      Roact with Rodux
+    <a href="../../advanced/context/" title="Context" class="md-nav__link">
+      Context
     </a>
   </li>
 
@@ -449,7 +419,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../api-reference/" title="API Reference" class="md-nav__link">
+    <a href="../../api-reference/" title="API Reference" class="md-nav__link">
       API Reference
     </a>
   </li>
@@ -482,18 +452,42 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/Roblox/roact/edit/master/docs/getting-started.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/Roblox/roact/edit/master/docs/guide/elements.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
-<p>The simplest way to get started is to download an installer script from the <a href="https://github.com/Roblox/roact/releases">Roact GitHub releases page</a>.</p>
-<p>Install it somewhere that's accessible by your code, and then load it using <code>require</code>:</p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
-
-<span class="kd">local</span> <span class="n">Roact</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">.</span><span class="n">Roact</span><span class="p">)</span>
-
-<span class="c1">-- Now you have Roact!</span>
+                <h1 id="elements">Elements<a class="headerlink" href="#elements" title="Permanent link">&para;</a></h1>
+<p>Like React, everything in Roact is built out of elements. Elements are the smallest building block for creating UI.</p>
+<p>Elements describe what you want your UI to look like at a single point in time. They're <a href="https://en.wikipedia.org/wiki/Immutable_object">immutable</a>: you can't change elements once they're created, but you can create new ones.</p>
+<p>You can create an element using <code>Roact.createElement</code> -- just pass a Roblox class name as the first argument, and any properties as the second argument!</p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">myElement</span> <span class="o">=</span> <span class="n">Roact</span><span class="p">.</span><span class="n">createElement</span><span class="p">(</span><span class="s2">&quot;Frame&quot;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="n">Size</span> <span class="o">=</span> <span class="n">UDim2</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
+
+
+<p>You can also represent children by passing them to the optional third argument of <code>createElement</code>:</p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">myElement</span> <span class="o">=</span> <span class="n">Roact</span><span class="p">.</span><span class="n">createElement</span><span class="p">(</span><span class="s2">&quot;Frame&quot;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="n">Size</span> <span class="o">=</span> <span class="n">UDim2</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="p">},</span> <span class="p">{</span>
+    <span class="n">SomeChild</span> <span class="o">=</span> <span class="n">Roact</span><span class="p">.</span><span class="n">createElement</span><span class="p">(</span><span class="s2">&quot;ImageLabel&quot;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="n">Image</span> <span class="o">=</span> <span class="s2">&quot;rbxassetid://5891234&quot;</span>
+    <span class="p">})</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<p>Creating an element by itself doesn't do anything, however. In order to turn our description of an object into a real Roblox object, we can call <code>Roact.reify</code>:</p>
+<div class="codehilite"><pre><span></span><span class="c1">-- Create a new Frame object in &#39;Workspace&#39;</span>
+<span class="kd">local</span> <span class="n">myHandle</span> <span class="o">=</span> <span class="n">Roact</span><span class="p">.</span><span class="n">reify</span><span class="p">(</span><span class="n">myElement</span><span class="p">,</span> <span class="n">game</span><span class="p">.</span><span class="n">Workspace</span><span class="p">)</span>
+</pre></div>
+
+
+<p><code>Roact.reify</code> returns a handle that you can later use to destroy that object with <code>Roact.teardown</code>:</p>
+<div class="codehilite"><pre><span></span><span class="n">Roact</span><span class="p">.</span><span class="n">teardown</span><span class="p">(</span><span class="n">myHandle</span><span class="p">)</span>
+</pre></div>
+
+
+<p>In the next section, we'll talk about components, which let us create reusable chunks of UI, as well as <em>change</em> our existing UI without destroying it!</p>
                 
                   
                 
@@ -512,7 +506,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../what-is-roact/" title="What is Roact?" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../hello-roact/" title="Hello, Roact!" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -521,19 +515,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                What is Roact?
+                Hello, Roact!
               </span>
             </div>
           </a>
         
         
-          <a href="../concepts/elements-components/" title="Elements and Components" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../components/" title="Components" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Elements and Components
+                Components
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -563,9 +557,9 @@
       
     </div>
     
-      <script src="../assets/javascripts/application.02434462.js"></script>
+      <script src="../../assets/javascripts/application.02434462.js"></script>
       
-      <script>app.initialize({version:"0.17.2",url:{base:".."}})</script>
+      <script>app.initialize({version:"0.17.2",url:{base:"../.."}})</script>
       
     
     

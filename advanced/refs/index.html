@@ -11,6 +11,8 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
+        <link rel="canonical" href="https://roblox.github.io/roact/advanced/refs/">
+      
       
       
         <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -36,7 +38,7 @@
     
     
       
-        <title>Lifecycle of Components - Roact Documentation</title>
+        <title>Refs - Roact Documentation</title>
       
     
     
@@ -56,6 +58,8 @@
       
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
+    
+      <link rel="stylesheet" href="../../css/component-diagram.css">
     
     
   </head>
@@ -93,7 +97,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#lifecycle" tabindex="1" class="md-skip">
+      <a href="#refs" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -102,7 +106,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="Roact Documentation" class="md-header-nav__button md-logo">
+        <a href="https://roblox.github.io/roact/" title="Roact Documentation" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -119,7 +123,7 @@
                 Roact Documentation
               </span>
               <span class="md-header-nav__topic">
-                Lifecycle of Components
+                Refs
               </span>
             
           
@@ -247,22 +251,94 @@
       
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
-    <a href="../../what-is-roact/" title="What is Roact?" class="md-nav__link">
-      What is Roact?
+    <a href="../../guide/installation/" title="Installation" class="md-nav__link">
+      Installation
     </a>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
 
 
   <li class="md-nav__item">
-    <a href="../../getting-started/" title="Getting Started" class="md-nav__link">
-      Getting Started
+    <a href="../../guide/hello-roact/" title="Hello, Roact!" class="md-nav__link">
+      Hello, Roact!
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/elements/" title="Elements" class="md-nav__link">
+      Elements
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/components/" title="Components" class="md-nav__link">
+      Components
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/state-and-lifecycle/" title="State and Lifecycle" class="md-nav__link">
+      State and Lifecycle
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/events/" title="Events" class="md-nav__link">
+      Events
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -275,14 +351,14 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
-    <label class="md-nav__link" for="nav-4">
-      Concepts
+    <label class="md-nav__link" for="nav-3">
+      Advanced Concepts
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
-        Concepts
+      <label class="md-nav__title" for="nav-3">
+        Advanced Concepts
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -293,20 +369,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../elements-components/" title="Elements and Components" class="md-nav__link">
-      Elements and Components
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../props-and-state/" title="Props and State" class="md-nav__link">
-      Props and State
+    <a href="../portals/" title="Portals" class="md-nav__link">
+      Portals
     </a>
   </li>
 
@@ -325,106 +389,10 @@
       
     
     
-    <a href="./" title="Lifecycle of Components" class="md-nav__link md-nav__link--active">
-      Lifecycle of Components
-    </a>
-    
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../usage-with-rodux/" title="Usage with Rodux" class="md-nav__link">
-      Usage with Rodux
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
-    
-    <label class="md-nav__link" for="nav-5">
-      Examples
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        Examples
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../examples/hello-roact/" title="Hello, Roact!" class="md-nav__link">
-      Hello, Roact!
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../examples/counter/" title="Stateful Counter" class="md-nav__link">
-      Stateful Counter
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../examples/events/" title="Events, the Roact Way" class="md-nav__link">
-      Events, the Roact Way
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../examples/teardown/" title="Tearing Down Components" class="md-nav__link">
-      Tearing Down Components
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../examples/refs/" title="Refs" class="md-nav__link">
+    <a href="./" title="Refs" class="md-nav__link md-nav__link--active">
       Refs
     </a>
+    
   </li>
 
         
@@ -434,8 +402,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../examples/roact-rodux/" title="Roact with Rodux" class="md-nav__link">
-      Roact with Rodux
+    <a href="../context/" title="Context" class="md-nav__link">
+      Context
     </a>
   </li>
 
@@ -484,36 +452,39 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/Roblox/roact/edit/master/docs/concepts/lifecycle.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/Roblox/roact/edit/master/docs/advanced/refs.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="lifecycle">Lifecycle<a class="headerlink" href="#lifecycle" title="Permanent link">&para;</a></h1>
-<p>Roact calls special <em>lifecycle</em> events on stateful components that can be overridden.</p>
-<p>These are:
-<em> <code>didMount()</code>, called after the component and its children are fully created
-</em> <code>willUnmount()</code>, called just before the component is destroyed
-<em> <code>shouldUpdate(nextProps, nextState)</code>, called to decide whether to update, or ignore a change
-</em> <code>willUpdate(nextProps, nextState)</code>, called just before the component is given new props/state
-* <code>didUpdate(prevProps, prevState)</code>, called after the component handled an update</p>
-<p>To use them, define the appropriate methods on a stateful component:</p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">TestComponent</span> <span class="o">=</span> <span class="n">Roact</span><span class="p">.</span><span class="n">Component</span><span class="p">:</span><span class="n">extend</span><span class="p">(</span><span class="s2">&quot;TestComponent&quot;</span><span class="p">)</span>
+                <h1 id="refs">Refs<a class="headerlink" href="#refs" title="Permanent link">&para;</a></h1>
+<p><em>Refs</em> grant access to the actual Instance objects that are created by Roact. They're an escape hatch for when something is difficult or impossible to correctly express with the Roact API.</p>
+<p>To create a ref, pass a function prop with the key <code>Roact.Ref</code> when creating a primitive element:</p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Roact</span><span class="p">.</span><span class="n">createElement</span><span class="p">(</span><span class="s2">&quot;Frame&quot;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="p">[</span><span class="n">Roact</span><span class="p">.</span><span class="n">Ref</span><span class="p">]</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">rbx</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ref was called with&quot;</span><span class="p">,</span> <span class="n">rbx</span><span class="p">,</span> <span class="s2">&quot;of type&quot;</span><span class="p">,</span> <span class="n">typeof</span><span class="p">(</span><span class="n">rbx</span><span class="p">))</span>
+    <span class="kr">end</span>
+<span class="p">})</span>
 
-<span class="c1">-- We have to override this for every component</span>
-<span class="kr">function</span> <span class="nc">TestComponent</span><span class="p">:</span><span class="nf">render</span><span class="p">()</span>
-    <span class="kr">return</span> <span class="kc">nil</span>
-<span class="kr">end</span>
+<span class="kd">local</span> <span class="n">handle</span> <span class="o">=</span> <span class="n">Roact</span><span class="p">.</span><span class="n">reify</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
 
-<span class="kr">function</span> <span class="nc">TestComponent</span><span class="p">:</span><span class="nf">didMount</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;We were mounted!&quot;</span><span class="p">)</span>
-<span class="kr">end</span>
+<span class="c1">-- Output:</span>
+<span class="c1">--     Ref was called with Frame of type Instance</span>
 
-<span class="kr">function</span> <span class="nc">TestComponent</span><span class="p">:</span><span class="nf">willUnmount</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;We&#39;re about to unmount!&quot;</span><span class="p">)</span>
-<span class="kr">end</span>
+<span class="n">Roact</span><span class="p">.</span><span class="n">teardown</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
+
+<span class="c1">-- In the output:</span>
+<span class="c1">--     Ref was called with nil of type nil</span>
 </pre></div>
 
 
-<p><strong>Note:</strong> If you are calling <code>setState</code> within <code>didMount</code> or <code>didUpdate</code>, make sure that you are not calling <code>setState</code> unconditionally. If <code>setState</code> is called every time <code>didMount</code> or <code>didUpdate</code> is called, you will cause a stack overflow error.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Refs can only be used with primitive components.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When a component instance is destroyed or the ref property changes, <code>nil</code> will be passed to the old ref function!</p>
+</div>
+<p><strong>TODO: Continue!</strong></p>
                 
                   
                 
@@ -532,7 +503,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../props-and-state/" title="Props and State" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../portals/" title="Portals" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -541,19 +512,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Props and State
+                Portals
               </span>
             </div>
           </a>
         
         
-          <a href="../usage-with-rodux/" title="Usage with Rodux" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../context/" title="Context" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Usage with Rodux
+                Context
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

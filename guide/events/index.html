@@ -11,6 +11,8 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
+        <link rel="canonical" href="https://roblox.github.io/roact/guide/events/">
+      
       
       
         <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -36,7 +38,7 @@
     
     
       
-        <title>Stateful Counter - Roact Documentation</title>
+        <title>Events - Roact Documentation</title>
       
     
     
@@ -56,6 +58,8 @@
       
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
+    
+      <link rel="stylesheet" href="../../css/component-diagram.css">
     
     
   </head>
@@ -93,7 +97,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#stateful-counter" tabindex="1" class="md-skip">
+      <a href="#events" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -102,7 +106,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="Roact Documentation" class="md-header-nav__button md-logo">
+        <a href="https://roblox.github.io/roact/" title="Roact Documentation" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -119,7 +123,7 @@
                 Roact Documentation
               </span>
               <span class="md-header-nav__topic">
-                Stateful Counter
+                Events
               </span>
             
           
@@ -246,118 +250,34 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../../what-is-roact/" title="What is Roact?" class="md-nav__link">
-      What is Roact?
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../getting-started/" title="Getting Started" class="md-nav__link">
-      Getting Started
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
-    
-    <label class="md-nav__link" for="nav-4">
-      Concepts
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
-        Concepts
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../concepts/elements-components/" title="Elements and Components" class="md-nav__link">
-      Elements and Components
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../concepts/props-and-state/" title="Props and State" class="md-nav__link">
-      Props and State
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../concepts/lifecycle/" title="Lifecycle of Components" class="md-nav__link">
-      Lifecycle of Components
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../concepts/usage-with-rodux/" title="Usage with Rodux" class="md-nav__link">
-      Usage with Rodux
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
   
 
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
-    <label class="md-nav__link" for="nav-5">
-      Examples
+    <label class="md-nav__link" for="nav-2">
+      Guide
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        Examples
+      <label class="md-nav__title" for="nav-2">
+        Guide
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../installation/" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
         
           
           
@@ -367,6 +287,42 @@
   <li class="md-nav__item">
     <a href="../hello-roact/" title="Hello, Roact!" class="md-nav__link">
       Hello, Roact!
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../elements/" title="Elements" class="md-nav__link">
+      Elements
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../components/" title="Components" class="md-nav__link">
+      Components
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../state-and-lifecycle/" title="State and Lifecycle" class="md-nav__link">
+      State and Lifecycle
     </a>
   </li>
 
@@ -385,21 +341,45 @@
       
     
     
-    <a href="./" title="Stateful Counter" class="md-nav__link md-nav__link--active">
-      Stateful Counter
+    <a href="./" title="Events" class="md-nav__link md-nav__link--active">
+      Events
     </a>
     
   </li>
 
         
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Advanced Concepts
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Advanced Concepts
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
           
           
           
 
 
   <li class="md-nav__item">
-    <a href="../events/" title="Events, the Roact Way" class="md-nav__link">
-      Events, the Roact Way
+    <a href="../../advanced/portals/" title="Portals" class="md-nav__link">
+      Portals
     </a>
   </li>
 
@@ -410,19 +390,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../teardown/" title="Tearing Down Components" class="md-nav__link">
-      Tearing Down Components
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../refs/" title="Refs" class="md-nav__link">
+    <a href="../../advanced/refs/" title="Refs" class="md-nav__link">
       Refs
     </a>
   </li>
@@ -434,8 +402,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../roact-rodux/" title="Roact with Rodux" class="md-nav__link">
-      Roact with Rodux
+    <a href="../../advanced/context/" title="Context" class="md-nav__link">
+      Context
     </a>
   </li>
 
@@ -484,81 +452,28 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/Roblox/roact/edit/master/docs/examples/counter.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/Roblox/roact/edit/master/docs/guide/events.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="stateful-counter">Stateful Counter<a class="headerlink" href="#stateful-counter" title="Permanent link">&para;</a></h1>
-<p>In <a href="../hello-roact.html"><em>Hello, Roact!</em></a>, two simple ways of creating a static component were shown off.</p>
-<p>Of course, Roact wouldn't be useful if state didn't change, so we're going to build a component that shows the number of seconds since it was created.</p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">Players</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">)</span>
-<span class="kd">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
+                <h1 id="events">Events<a class="headerlink" href="#events" title="Permanent link">&para;</a></h1>
+<p>Roact manages Instance event connections automatically as part of rendering.</p>
+<p>To connect to an event, pass a prop with <code>Roact.Event.EVENT_NAME</code> as the key and a function as the value.</p>
+<p>Roact will pass the instance that the event is connected to as the first argument to the event callback, followed by any arguments that Roblox passed in.</p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">button</span> <span class="o">=</span> <span class="n">Roact</span><span class="p">.</span><span class="n">createElement</span><span class="p">(</span><span class="s2">&quot;TextButton&quot;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="n">Text</span> <span class="o">=</span> <span class="s2">&quot;Click me!&quot;</span><span class="p">,</span>
+    <span class="n">Size</span> <span class="o">=</span> <span class="n">UDim2</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span>
 
-<span class="kd">local</span> <span class="n">Roact</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">.</span><span class="n">Roact</span><span class="p">)</span>
-
-<span class="c1">-- A functional component to render the current tick.</span>
-<span class="c1">-- This component has no local state. Most components are like this!</span>
-<span class="kd">local</span> <span class="kr">function</span> <span class="nf">TickLabel</span><span class="p">(</span><span class="n">props</span><span class="p">)</span>
-    <span class="kd">local</span> <span class="n">value</span> <span class="o">=</span> <span class="n">props</span><span class="p">.</span><span class="n">value</span>
-
-    <span class="kr">return</span> <span class="n">Roact</span><span class="p">.</span><span class="n">createElement</span><span class="p">(</span><span class="s2">&quot;TextLabel&quot;</span><span class="p">,</span> <span class="p">{</span>
-        <span class="n">Size</span> <span class="o">=</span> <span class="n">UDim2</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
-        <span class="n">Text</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Current tick is %d!&quot;</span><span class="p">):</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">),</span>
-    <span class="p">})</span>
-<span class="kr">end</span>
-
-<span class="kd">local</span> <span class="n">App</span> <span class="o">=</span> <span class="n">Roact</span><span class="p">.</span><span class="n">Component</span><span class="p">:</span><span class="n">extend</span><span class="p">(</span><span class="s2">&quot;App&quot;</span><span class="p">)</span>
-
-<span class="kr">function</span> <span class="nc">App</span><span class="p">:</span><span class="nf">init</span><span class="p">()</span>
-    <span class="c1">-- State that cannot affect rendering can exist directly on the instance.</span>
-    <span class="c1">-- This variable is used to kill the timer loop when the component ends.</span>
-    <span class="n">self</span><span class="p">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">false</span>
-
-    <span class="c1">-- State that changes rendering must exist in `state`!</span>
-    <span class="c1">-- You can only directly assign to `state` in the constructor.</span>
-    <span class="n">self</span><span class="p">.</span><span class="n">state</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="p">}</span>
-<span class="kr">end</span>
-
-<span class="kr">function</span> <span class="nc">App</span><span class="p">:</span><span class="nf">render</span><span class="p">()</span>
-    <span class="kr">return</span> <span class="n">Roact</span><span class="p">.</span><span class="n">createElement</span><span class="p">(</span><span class="s2">&quot;ScreenGui&quot;</span><span class="p">,</span> <span class="p">{</span>
-    <span class="p">},</span> <span class="p">{</span>
-        <span class="c1">-- We can render our own components just like Roblox primitives</span>
-        <span class="n">Count</span> <span class="o">=</span> <span class="n">Roact</span><span class="p">.</span><span class="n">createElement</span><span class="p">(</span><span class="n">TickLabel</span><span class="p">,</span> <span class="p">{</span>
-            <span class="n">value</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">state</span><span class="p">.</span><span class="n">count</span><span class="p">,</span>
-        <span class="p">}),</span>
-    <span class="p">})</span>
-<span class="kr">end</span>
-
-<span class="kr">function</span> <span class="nc">App</span><span class="p">:</span><span class="nf">didMount</span><span class="p">()</span>
-    <span class="c1">-- Use &#39;didMount&#39; to be notified when a component instance is created</span>
-
-    <span class="n">spawn</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
-        <span class="n">self</span><span class="p">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">true</span>
-
-        <span class="kr">while</span> <span class="n">self</span><span class="p">.</span><span class="n">running</span> <span class="kr">do</span>
-            <span class="c1">-- Use &#39;setState&#39; to update the component and patch the current</span>
-            <span class="c1">-- state with new properties.</span>
-            <span class="c1">-- Don&#39;t set `state` directly!</span>
-            <span class="n">self</span><span class="p">:</span><span class="n">setState</span><span class="p">({</span>
-                <span class="n">count</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">state</span><span class="p">.</span><span class="n">count</span> <span class="o">+</span> <span class="mi">1</span>
-            <span class="p">})</span>
-
-            <span class="n">wait</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="kr">end</span>
-    <span class="kr">end</span><span class="p">)</span>
-<span class="kr">end</span>
-
-<span class="kr">function</span> <span class="nc">App</span><span class="p">:</span><span class="nf">willUnmount</span><span class="p">()</span>
-    <span class="c1">-- &#39;willUnmount&#39; notifies you when your component is about to be removed.</span>
-    <span class="c1">-- Do any cleanup here, like terminating a loop!</span>
-    <span class="n">self</span><span class="p">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">false</span>
-<span class="kr">end</span>
-
-<span class="kd">local</span> <span class="n">element</span> <span class="o">=</span> <span class="n">Roact</span><span class="p">.</span><span class="n">createElement</span><span class="p">(</span><span class="n">App</span><span class="p">)</span>
-
-<span class="n">Roact</span><span class="p">.</span><span class="n">reify</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">Players</span><span class="p">.</span><span class="n">LocalPlayer</span><span class="p">.</span><span class="n">PlayerGui</span><span class="p">,</span> <span class="s2">&quot;StatefulCounter&quot;</span><span class="p">)</span>
+    <span class="p">[</span><span class="n">Roact</span><span class="p">.</span><span class="n">Event</span><span class="p">.</span><span class="n">MouseButton1Click</span><span class="p">]</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">rbx</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The button was clicked!&quot;</span><span class="p">)</span>
+    <span class="kr">end</span>
+<span class="p">})</span>
 </pre></div>
+
+
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Events will automatically be disconnected when a component instance is unmounted!</p>
+</div>
                 
                   
                 
@@ -577,7 +492,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../hello-roact/" title="Hello, Roact!" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../state-and-lifecycle/" title="State and Lifecycle" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -586,19 +501,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Hello, Roact!
+                State and Lifecycle
               </span>
             </div>
           </a>
         
         
-          <a href="../events/" title="Events, the Roact Way" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../advanced/portals/" title="Portals" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Events, the Roact Way
+                Portals
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

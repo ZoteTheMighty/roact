@@ -3,24 +3,8 @@
 
     
     <url>
-     <loc>/</loc>
-     <lastmod>2018-02-27</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>/what-is-roact/</loc>
-     <lastmod>2018-02-27</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>/getting-started/</loc>
-     <lastmod>2018-02-27</lastmod>
+     <loc>https://roblox.github.io/roact//</loc>
+     <lastmod>2018-03-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -28,26 +12,38 @@
     
         
     <url>
-     <loc>/concepts/elements-components/</loc>
-     <lastmod>2018-02-27</lastmod>
+     <loc>https://roblox.github.io/roact//guide/installation/</loc>
+     <lastmod>2018-03-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/concepts/props-and-state/</loc>
-     <lastmod>2018-02-27</lastmod>
+     <loc>https://roblox.github.io/roact//guide/hello-roact/</loc>
+     <lastmod>2018-03-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/concepts/lifecycle/</loc>
-     <lastmod>2018-02-27</lastmod>
+     <loc>https://roblox.github.io/roact//guide/elements/</loc>
+     <lastmod>2018-03-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/concepts/usage-with-rodux/</loc>
-     <lastmod>2018-02-27</lastmod>
+     <loc>https://roblox.github.io/roact//guide/components/</loc>
+     <lastmod>2018-03-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://roblox.github.io/roact//guide/state-and-lifecycle/</loc>
+     <lastmod>2018-03-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://roblox.github.io/roact//guide/events/</loc>
+     <lastmod>2018-03-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -56,38 +52,20 @@
     
         
     <url>
-     <loc>/examples/hello-roact/</loc>
-     <lastmod>2018-02-27</lastmod>
+     <loc>https://roblox.github.io/roact//advanced/portals/</loc>
+     <lastmod>2018-03-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/examples/counter/</loc>
-     <lastmod>2018-02-27</lastmod>
+     <loc>https://roblox.github.io/roact//advanced/refs/</loc>
+     <lastmod>2018-03-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/examples/events/</loc>
-     <lastmod>2018-02-27</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/examples/teardown/</loc>
-     <lastmod>2018-02-27</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/examples/refs/</loc>
-     <lastmod>2018-02-27</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/examples/roact-rodux/</loc>
-     <lastmod>2018-02-27</lastmod>
+     <loc>https://roblox.github.io/roact//advanced/context/</loc>
+     <lastmod>2018-03-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -95,8 +73,8 @@
 
     
     <url>
-     <loc>/api-reference/</loc>
-     <lastmod>2018-02-27</lastmod>
+     <loc>https://roblox.github.io/roact//api-reference/</loc>
+     <lastmod>2018-03-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     

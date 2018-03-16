@@ -607,6 +607,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#roactreconcile" title="Roact.reconcile" class="md-nav__link">
+    Roact.reconcile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#roactteardown" title="Roact.teardown" class="md-nav__link">
     Roact.teardown
   </a>
@@ -829,6 +836,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#roactreconcile" title="Roact.reconcile" class="md-nav__link">
+    Roact.reconcile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#roactteardown" title="Roact.teardown" class="md-nav__link">
     Roact.teardown
   </a>
@@ -1025,9 +1039,35 @@
 <p>This is the key that Roact uses internally to store the children that are attached to a Roact element.</p>
 <p>If you're writing a new functional or stateful element that needs to be used like a primitive component, you can access <code>Roact.Children</code> in your props table.</p>
 <h3 id="roactref">Roact.Ref<a class="headerlink" href="#roactref" title="Permanent link">&para;</a></h3>
-<p>Used to access underlying Roblox instances. See <a href="../advanced/refs.html">the refs guide</a> for more details.</p>
+<p>Use <code>Roact.Ref</code> as a key into the props of a primitive element to receive a handle to the underlying Roblox Instance.</p>
+<div class="codehilite"><pre><span></span><span class="n">Roact</span><span class="p">.</span><span class="n">createElement</span><span class="p">(</span><span class="s2">&quot;Frame&quot;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="p">[</span><span class="n">Roact</span><span class="p">.</span><span class="n">Ref</span><span class="p">]</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">rbx</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Roblox Instance&quot;</span><span class="p">,</span> <span class="n">rbx</span><span class="p">)</span>
+    <span class="kr">end</span><span class="p">,</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code>Roact.Ref</code> will be called with <code>nil</code> when the component instance is destroyed!</p>
+</div>
+<p>See <a href="../advanced/refs.html">the refs guide</a> for more details.</p>
 <h3 id="roactevent">Roact.Event<a class="headerlink" href="#roactevent" title="Permanent link">&para;</a></h3>
-<p>Index into this object to get handles that can be used for attaching events to Roblox objects. See <a href="../guide/events/">the events guide</a> for more details.</p>
+<p>Index into <code>Roact.Event</code> to receive a key that can be used to connect to events when creating primitive elements:</p>
+<div class="codehilite"><pre><span></span><span class="n">Roact</span><span class="p">.</span><span class="n">createElement</span><span class="p">(</span><span class="s2">&quot;ImageButton&quot;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="p">[</span><span class="n">Roact</span><span class="p">.</span><span class="n">Event</span><span class="p">.</span><span class="n">MouseButton1Click</span><span class="p">]</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">rbx</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">rbx</span><span class="p">,</span> <span class="s2">&quot;clicked at position&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="kr">end</span><span class="p">,</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Event callbacks receive the Roblox Instance as the first parameter, followed by any parameters yielded by the event.</p>
+</div>
+<p>See <a href="../guide/events/">the events guide</a> for more details.</p>
 <h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
 <h3 id="roactcreateelement">Roact.createElement<a class="headerlink" href="#roactcreateelement" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>Roact.createElement(component, [props, [children]]) -&gt; RoactElement
@@ -1042,18 +1082,30 @@
 <p>Once <code>props</code> or <code>children</code> are passed into the <code>createElement</code>, make sure not to modify them!</p>
 </div>
 <h3 id="roactreify">Roact.reify<a class="headerlink" href="#roactreify" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>Roact.reify(element, [parent, [key]]) -&gt; RoactComponentInstance
+<div class="codehilite"><pre><span></span>Roact.reify(element, [parent, [key]]) -&gt; ComponentInstanceHandle
 </pre></div>
 
 
 <p>Creates a Roblox Instance given a Roact element, and optionally a <code>parent</code> to put it in, and a <code>key</code> to use as the instance's <code>Name</code>.</p>
-<p>The result is a <code>RoactComponentInstance</code>, which is an opaque handle that represents this specific instance of the root component. You can pass this to APIs like <code>Roact.teardown</code> and the future debug API.</p>
+<p>The result is a <code>ComponentInstanceHandle</code>, which is an opaque handle that represents this specific instance of the root component. You can pass this to APIs like <code>Roact.teardown</code> and the future debug API.</p>
+<h3 id="roactreconcile">Roact.reconcile<a class="headerlink" href="#roactreconcile" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>Roact.reconcile(instanceHandle, element) -&gt; ComponentInstanceHandle
+</pre></div>
+
+
+<p>Updates an existing instance handle with a new element, returning a new handle.</p>
+<p><code>reconcile</code> can be used to change the props of a component instance created with <code>reify</code> and is useful for putting Roact content into non-Roact applications.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code>Roact.reconcile</code> takes ownership of the <code>instanceHandle</code> passed into it and may tear it down and create a new tree!</p>
+<p>Make sure to use the handle that <code>reconcile</code> returns in any operations after <code>reconcile</code>, including <code>teardown</code>.</p>
+</div>
 <h3 id="roactteardown">Roact.teardown<a class="headerlink" href="#roactteardown" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>Roact.teardown(instance) -&gt; void
 </pre></div>
 
 
-<p>Destroys the given <code>RoactComponentInstance</code> and all of its descendents. Does not operate on a Roblox Instance -- this must be given a handle that was returned by <code>Roact.reify</code>.</p>
+<p>Destroys the given <code>ComponentInstanceHandle</code> and all of its descendents. Does not operate on a Roblox Instance -- this must be given a handle that was returned by <code>Roact.reify</code>.</p>
 <h3 id="roactonechild">Roact.oneChild<a class="headerlink" href="#roactonechild" title="Permanent link">&para;</a></h3>
 <p><code>Roact.oneChild(children) -&gt; RoactElement | nil</code></p>
 <p>Given a dictionary of children, returns a single child element.</p>

@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.6.6">
+      <meta name="generator" content="mkdocs-0.17.3, mkdocs-material-2.7.1">
     
     
       
@@ -93,8 +93,8 @@
         
       </defs>
     </svg>
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
       <a href="#portals" tabindex="1" class="md-skip">
@@ -457,7 +457,10 @@
                 
                 <h1 id="portals">Portals<a class="headerlink" href="#portals" title="Permanent link">&para;</a></h1>
 <p><em>Portals</em> are a special kind of component provided by Roact that enable components to render objects into a separate, non-Roact Instance.</p>
-<p><strong>(TODO: diagram of portals)</strong></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Eventually, there will be a diagram of Roact portals here. For now, just imagine Valve's hit game, <em>Portal</em>.</p>
+</div>
 <p>To create a portal, use the <code>Roact.Portal</code> component with <code>createElement</code>:</p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">PartInWorkspace</span><span class="p">(</span><span class="n">props</span><span class="p">)</span>
     <span class="kr">return</span> <span class="n">Roact</span><span class="p">.</span><span class="n">createElement</span><span class="p">(</span><span class="n">Roact</span><span class="p">.</span><span class="n">Portal</span><span class="p">,</span> <span class="p">{</span>
@@ -472,6 +475,10 @@
 
 
 <p>When we create <code>PartInWorkspace</code>, even if it's deep into our Roact tree, a <code>Part</code> Instance named <code>SomePart</code> will be created in <code>Workspace</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Portals should only be created to objects that aren't managed by Roact!</p>
+</div>
 <p>One particularly good use for portals is full-screen modal dialogs. When we render a modal dialog, we want it to take over the entire screen, but we want components deep in the tree to be able to create them!</p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">PlayerGui</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">).</span><span class="n">LocalPlayer</span><span class="p">.</span><span class="n">PlayerGui</span>
 
@@ -538,6 +545,8 @@
               
               
                 
+
+
               
             </article>
           </div>
@@ -601,9 +610,9 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application.02434462.js"></script>
+      <script src="../../assets/javascripts/application.8eb9be28.js"></script>
       
-      <script>app.initialize({version:"0.17.2",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"0.17.3",url:{base:"../.."}})</script>
       
     
     

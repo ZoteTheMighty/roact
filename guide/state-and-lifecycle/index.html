@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.6.6">
+      <meta name="generator" content="mkdocs-0.17.3, mkdocs-material-2.7.1">
     
     
       
@@ -93,8 +93,8 @@
         
       </defs>
     </svg>
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
       <a href="#state-and-lifecycle" tabindex="1" class="md-skip">
@@ -362,8 +362,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#combining-state-and-lifecycle" title="Combining State and Lifecycle" class="md-nav__link">
-    Combining State and Lifecycle
+  <a href="#incrementing-counter-part-three" title="Incrementing Counter, Part Three" class="md-nav__link">
+    Incrementing Counter, Part Three
   </a>
   
 </li>
@@ -503,8 +503,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#combining-state-and-lifecycle" title="Combining State and Lifecycle" class="md-nav__link">
-    Combining State and Lifecycle
+  <a href="#incrementing-counter-part-three" title="Incrementing Counter, Part Three" class="md-nav__link">
+    Incrementing Counter, Part Three
   </a>
   
 </li>
@@ -532,18 +532,82 @@
 <p>In the previous section, we talked about using components to create reusable chunks of state, and introduced <em>functional</em> and <em>stateful</em> components.</p>
 <p>Stateful components do everything that functional components do, but have the addition of mutable <em>state</em> and <em>lifecycle methods</em>.</p>
 <h2 id="state">State<a class="headerlink" href="#state" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This section is incomplete!</p>
+</div>
 <h2 id="lifecycle-methods">Lifecycle Methods<a class="headerlink" href="#lifecycle-methods" title="Permanent link">&para;</a></h2>
 <p>Stateful components can provide methods to Roact that are called when certain things happen to a component instance.</p>
 <p>Lifecycle methods are a great place to send off network requests, measure UI (<a href="../../advanced/refs">with the help of refs</a>), wrap non-Roact components, and other side-effects.</p>
 <p>A <a href="../../api-reference#lifecycle-events">diagram of Roact's lifecycle methods</a> is available in the API reference.</p>
-<h2 id="combining-state-and-lifecycle">Combining State and Lifecycle<a class="headerlink" href="#combining-state-and-lifecycle" title="Permanent link">&para;</a></h2>
+<h2 id="incrementing-counter-part-three">Incrementing Counter, Part Three<a class="headerlink" href="#incrementing-counter-part-three" title="Permanent link">&para;</a></h2>
+<p>Building on the previous two examples, we can expand the incrementing counter to move the counter state and loop inside Roact, and use <code>setState</code> to trigger a re-render instead of <code>Roact.reconcile</code>.</p>
+<p>Generally, this ticking clock demonstrates how many stateful components are structured in Roact.</p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">Players</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">)</span>
+
+<span class="kd">local</span> <span class="n">Roact</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">.</span><span class="n">Roact</span><span class="p">)</span>
+
+<span class="kd">local</span> <span class="n">Clock</span> <span class="o">=</span> <span class="n">Roact</span><span class="p">.</span><span class="n">Component</span><span class="p">:</span><span class="n">extend</span><span class="p">(</span><span class="s2">&quot;Clock&quot;</span><span class="p">)</span>
+
+<span class="c1">-- This render function is almost completely unchanged from the first example.</span>
+<span class="kr">function</span> <span class="nc">Clock</span><span class="p">:</span><span class="nf">render</span><span class="p">()</span>
+    <span class="kd">local</span> <span class="n">currentTime</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">props</span><span class="p">.</span><span class="n">currentTime</span>
+
+    <span class="kr">return</span> <span class="n">Roact</span><span class="p">.</span><span class="n">createElement</span><span class="p">(</span><span class="s2">&quot;ScreenGui&quot;</span><span class="p">,</span> <span class="p">{},</span> <span class="p">{</span>
+        <span class="n">TimeLabel</span> <span class="o">=</span> <span class="n">Roact</span><span class="p">.</span><span class="n">createElement</span><span class="p">(</span><span class="s2">&quot;TextLabel&quot;</span><span class="p">,</span> <span class="p">{</span>
+            <span class="n">Size</span> <span class="o">=</span> <span class="n">UDim2</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="n">Text</span> <span class="o">=</span> <span class="s2">&quot;Time Elapsed: &quot;</span> <span class="o">..</span> <span class="n">currentTime</span>
+        <span class="p">})</span>
+    <span class="p">})</span>
+<span class="kr">end</span>
+
+<span class="c1">-- Set up our loop in didMount, so that it starts running when our</span>
+<span class="c1">-- component is created.</span>
+<span class="kr">function</span> <span class="nc">Clock</span><span class="p">:</span><span class="nf">didMount</span><span class="p">()</span>
+    <span class="c1">-- Set a value that we can change later to stop our loop</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">true</span>
+
+    <span class="c1">-- We don&#39;t want to block the main thread, so we spawn a new one!</span>
+    <span class="n">spawn</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+        <span class="kr">while</span> <span class="n">self</span><span class="p">.</span><span class="n">running</span> <span class="kr">do</span>
+            <span class="c1">-- Because we depend on the previous state, we use the function</span>
+            <span class="c1">-- variant of setState. This will matter more when Roact gets</span>
+            <span class="c1">-- asynchronous rendering!</span>
+            <span class="n">self</span><span class="p">:</span><span class="n">setState</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+                <span class="kr">return</span> <span class="p">{</span>
+                    <span class="n">currentTime</span> <span class="o">=</span> <span class="n">state</span><span class="p">.</span><span class="n">currentTime</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="p">}</span>
+            <span class="kr">end</span><span class="p">)</span>
+
+            <span class="n">wait</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="kr">end</span>
+    <span class="kr">end</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="c1">-- Stop the loop in willUnmount, so that our loop terminates when the</span>
+<span class="c1">-- component is destroyed.</span>
+<span class="kr">function</span> <span class="nc">Clock</span><span class="p">:</span><span class="nf">willUnmount</span><span class="p">()</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">false</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="n">PlayerGui</span> <span class="o">=</span> <span class="n">Players</span><span class="p">.</span><span class="n">LocalPlayer</span><span class="p">.</span><span class="n">PlayerGui</span>
+
+<span class="c1">-- Create our UI, which now runs on its own!</span>
+<span class="kd">local</span> <span class="n">handle</span> <span class="o">=</span> <span class="n">Roact</span><span class="p">.</span><span class="n">reify</span><span class="p">(</span><span class="n">Roact</span><span class="p">.</span><span class="n">createElement</span><span class="p">(</span><span class="n">Clock</span><span class="p">),</span> <span class="n">PlayerGui</span><span class="p">,</span> <span class="s2">&quot;Clock UI&quot;</span><span class="p">)</span>
+
+<span class="c1">-- Later, we can destroy our UI and disconnect everything correctly.</span>
+<span class="n">wait</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">Roact</span><span class="p">.</span><span class="n">teardown</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
+</pre></div>
                 
                   
                 
               
               
                 
+
+
               
             </article>
           </div>
@@ -607,9 +671,9 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application.02434462.js"></script>
+      <script src="../../assets/javascripts/application.8eb9be28.js"></script>
       
-      <script>app.initialize({version:"0.17.2",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"0.17.3",url:{base:"../.."}})</script>
       
     
     

@@ -3,6 +3,7 @@ local ElementKind = require(script.Parent.ElementKind)
 local ChildUtils = require(script.Parent.ChildUtils)
 local Children = require(script.Parent.PropMarkers.Children)
 local Logging = require(script.Parent.Logging)
+local Binding = require(script.Parent.Binding)
 
 --[[
 	The reconciler is the mechanism in Roact that constructs the virtual tree
@@ -20,6 +21,39 @@ local function createReconciler(renderer)
 	local reconciler
 	local mountVirtualNode
 	local updateVirtualNode
+
+	--[[
+		Attach a binding to the given virtualNode at the given key
+	]]
+	local function attachBinding(virtualNode, key, binding, updater)
+		if virtualNode.bindings == nil then
+			virtualNode.bindings = {}
+		end
+
+		virtualNode.bindings[key] = Binding.subscribe(binding, updater)
+
+		updater(binding:getValue())
+	end
+
+	--[[
+		Detach the given binding, so Roact no longer responds to its updates
+	]]
+	local function detachBinding(virtualNode, key)
+		local disconnect = virtualNode.bindings[key]
+		disconnect()
+		virtualNode.bindings[key] = nil
+	end
+
+	--[[
+		Detach all bindings associated with a node. Used when unmounting
+	]]
+	local function detachAllBindings(virtualNode)
+		if virtualNode.bindings ~= nil then
+			for _, disconnect in pairs(virtualNode.bindings) do
+				disconnect()
+			end
+		end
+	end
 
 	local function mountVirtualNodeChildren(virtualNode, hostParent, childElements)
 		assert(Type.of(virtualNode) == Type.VirtualNode)
@@ -84,6 +118,7 @@ local function createReconciler(renderer)
 		local kind = ElementKind.of(virtualNode.currentElement)
 
 		if kind == ElementKind.Host then
+			detachAllBindings(virtualNode)
 			renderer.unmountHostNode(reconciler, virtualNode)
 		elseif kind == ElementKind.Function then
 			for _, childNode in pairs(virtualNode.children) do
@@ -330,6 +365,9 @@ local function createReconciler(renderer)
 		updateVirtualNode = updateVirtualNode,
 		mountVirtualNodeChildren = mountVirtualNodeChildren,
 		updateVirtualNodeChildren = updateVirtualNodeChildren,
+
+		attachBinding = attachBinding,
+		detachBinding = detachBinding,
 	}
 
 	return reconciler

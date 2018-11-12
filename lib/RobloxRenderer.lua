@@ -42,35 +42,7 @@ local function setRobloxInstanceProperty(hostObject, key, newValue)
 	return
 end
 
-local function removeBinding(virtualNode, key)
-	local disconnect = virtualNode.bindings[key]
-	disconnect()
-	virtualNode.bindings[key] = nil
-end
-
-local function attachBinding(virtualNode, key, newBinding)
-	local function updateBoundProperty(newValue)
-		setRobloxInstanceProperty(virtualNode.hostObject, key, newValue)
-	end
-
-	if virtualNode.bindings == nil then
-		virtualNode.bindings = {}
-	end
-
-	virtualNode.bindings[key] = Binding.subscribe(newBinding, updateBoundProperty)
-
-	setRobloxInstanceProperty(virtualNode.hostObject, key, newBinding:getValue())
-end
-
-local function detachAllBindings(virtualNode)
-	if virtualNode.bindings ~= nil then
-		for _, disconnect in pairs(virtualNode.bindings) do
-			disconnect()
-		end
-	end
-end
-
-local function applyProp(virtualNode, key, newValue, oldValue)
+local function applyProp(reconciler, virtualNode, key, newValue, oldValue)
 	if newValue == oldValue then
 		return
 	end
@@ -91,11 +63,15 @@ local function applyProp(virtualNode, key, newValue, oldValue)
 	local oldIsBinding = Type.of(oldValue) == Type.Binding
 
 	if oldIsBinding then
-		removeBinding(virtualNode, key)
+		reconciler.detachBinding(virtualNode, key)
 	end
 
 	if newIsBinding then
-		attachBinding(virtualNode, key, newValue)
+		local function updater(updatedValue)
+			setRobloxInstanceProperty(virtualNode.hostObject, key, updatedValue)
+		end
+
+		reconciler.attachBinding(virtualNode, key, newValue, updater)
 	else
 		setRobloxInstanceProperty(virtualNode.hostObject, key, newValue)
 	end
@@ -122,7 +98,7 @@ function RobloxRenderer.mountHostNode(reconciler, virtualNode)
 	virtualNode.hostObject = instance
 
 	for propKey, value in pairs(element.props) do
-		applyProp(virtualNode, propKey, value, nil)
+		applyProp(reconciler, virtualNode, propKey, value, nil)
 	end
 
 	instance.Name = hostKey
@@ -146,7 +122,7 @@ function RobloxRenderer.unmountHostNode(reconciler, virtualNode)
 		reconciler.unmountVirtualNode(childNode)
 	end
 
-	detachAllBindings(virtualNode)
+	reconciler.detachAllBindings(virtualNode)
 
 	virtualNode.hostObject:Destroy()
 end
@@ -165,7 +141,7 @@ function RobloxRenderer.updateHostNode(reconciler, virtualNode, newElement)
 	for propKey, newValue in pairs(newProps) do
 		local oldValue = oldProps[propKey]
 
-		applyProp(virtualNode, propKey, newValue, oldValue)
+		applyProp(reconciler, virtualNode, propKey, newValue, oldValue)
 	end
 
 	-- Clean up props that were removed
@@ -173,7 +149,7 @@ function RobloxRenderer.updateHostNode(reconciler, virtualNode, newElement)
 		local newValue = newProps[propKey]
 
 		if newValue == nil then
-			applyProp(virtualNode, propKey, nil, oldValue)
+			applyProp(reconciler, virtualNode, propKey, nil, oldValue)
 		end
 	end
 

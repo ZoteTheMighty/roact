@@ -122,8 +122,6 @@ function RobloxRenderer.unmountHostNode(reconciler, virtualNode)
 		reconciler.unmountVirtualNode(childNode)
 	end
 
-	reconciler.detachAllBindings(virtualNode)
-
 	virtualNode.hostObject:Destroy()
 end
 

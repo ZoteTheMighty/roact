@@ -116,8 +116,10 @@ local function createReconciler(renderer)
 		assert(Type.of(virtualNode) == Type.VirtualNode)
 
 		local kind = ElementKind.of(virtualNode.currentElement)
+		print("unmounting node")
 
 		if kind == ElementKind.Host then
+			print("unmounting")
 			detachAllBindings(virtualNode)
 			renderer.unmountHostNode(reconciler, virtualNode)
 		elseif kind == ElementKind.Function then

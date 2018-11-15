@@ -1,6 +1,5 @@
 local assign = require(script.Parent.assign)
 local Type = require(script.Parent.Type)
-local ChildUtils = require(script.Parent.ChildUtils)
 local Symbol = require(script.Parent.Symbol)
 local invalidSetStateMessages = require(script.Parent.invalidSetStateMessages)
 
@@ -105,7 +104,7 @@ end
 	Intended to be used primarily by diagnostic tools.
 ]]
 function Component:getElementTraceback()
-	return self[InternalData].element.source
+	return self[InternalData].virtualNode.currentElement.source
 end
 
 --[[
@@ -134,16 +133,14 @@ function Component:__mount(reconciler, virtualNode)
 	assert(reconciler ~= nil)
 	assert(Type.of(virtualNode) == Type.VirtualNode)
 
-	local element = virtualNode.currentElement
+	local currentElement = virtualNode.currentElement
 	local hostParent = virtualNode.hostParent
-	local hostKey = virtualNode.hostKey
 
 	-- Contains all the information that we want to keep from consumers of
 	-- Roact, or even other parts of the codebase like the reconciler.
 	local internalData = {
 		reconciler = reconciler,
 		virtualNode = virtualNode,
-		element = element,
 		componentClass = self,
 
 		setStateBlockedReason = nil,
@@ -159,7 +156,7 @@ function Component:__mount(reconciler, virtualNode)
 
 	virtualNode.instance = instance
 
-	local props = element.props
+	local props = currentElement.props
 
 	if self.defaultProps ~= nil then
 		props = assign({}, self.defaultProps, props)
@@ -185,19 +182,10 @@ function Component:__mount(reconciler, virtualNode)
 	end
 
 	internalData.setStateBlockedReason = "render"
-	local renderResult = instance:render()
+	local children = instance:render()
 	internalData.setStateBlockedReason = nil
 
-	for childKey, childElement in ChildUtils.iterateChildren(renderResult) do
-		local concreteKey = childKey
-		if childKey == ChildUtils.UseParentKey then
-			concreteKey = hostKey
-		end
-
-		local childNode = reconciler.mountVirtualNode(childElement, hostParent, concreteKey)
-
-		virtualNode.children[childKey] = childNode
-	end
+	reconciler.updateVirtualNodeChildren(virtualNode, hostParent, children)
 
 	if instance.didMount ~= nil then
 		instance:didMount()
@@ -256,8 +244,6 @@ function Component:__update(updatedElement, updatedState)
 	if updatedElement ~= nil then
 		newProps = updatedElement.props
 
-		internalData.element = updatedElement
-
 		if componentClass.defaultProps ~= nil then
 			newProps = assign({}, componentClass.defaultProps, newProps)
 		end
@@ -283,9 +269,7 @@ function Component:__update(updatedElement, updatedState)
 		internalData.setStateBlockedReason = nil
 
 		if not continueWithUpdate then
-			-- TODO: Do we need to reset internalData.element so that
-			-- getElementTraceback stays correct?
-			return
+			return false
 		end
 	end
 
@@ -307,6 +291,8 @@ function Component:__update(updatedElement, updatedState)
 	if self.didUpdate ~= nil then
 		self:didUpdate(oldProps, oldState)
 	end
+
+	return true
 end
 
 return Component

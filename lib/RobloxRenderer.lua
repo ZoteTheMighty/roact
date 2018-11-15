@@ -7,6 +7,7 @@
 local Binding = require(script.Parent.Binding)
 local Children = require(script.Parent.PropMarkers.Children)
 local ElementKind = require(script.Parent.ElementKind)
+local SingleEventManager = require(script.Parent.SingleEventManager)
 local getDefaultInstanceProperty = require(script.Parent.getDefaultInstanceProperty)
 local Ref = require(script.Parent.PropMarkers.Ref)
 local Type = require(script.Parent.Type)
@@ -55,7 +56,18 @@ local function applyProp(reconciler, virtualNode, key, newValue, oldValue)
 	local internalKeyType = Type.of(key)
 
 	if internalKeyType == Type.HostEvent or internalKeyType == Type.HostChangeEvent then
-		-- TODO: Apply events
+		if virtualNode.eventManager == nil then
+			virtualNode.eventManager = SingleEventManager.new(virtualNode.hostObject)
+		end
+
+		local eventName = key.name
+
+		if internalKeyType == Type.HostChangeEvent then
+			virtualNode.eventManager:connectPropertyChange(eventName, newValue)
+		else
+			virtualNode.eventManager:connectEvent(eventName, newValue)
+		end
+
 		return
 	end
 
@@ -105,12 +117,17 @@ function RobloxRenderer.mountHostNode(reconciler, virtualNode)
 
 	local children = element.props[Children]
 
-	reconciler.mountVirtualNodeChildren(virtualNode, virtualNode.hostObject, children)
+	reconciler.updateVirtualNodeChildren(virtualNode, virtualNode.hostObject, children)
 
 	instance.Parent = hostParent
 	virtualNode.hostObject = instance
 
 	applyRef(element.props[Ref], instance)
+
+	-- Enable event handling only when we're done with mounting
+	if virtualNode.eventManager ~= nil then
+		virtualNode.eventManager:resume()
+	end
 end
 
 function RobloxRenderer.unmountHostNode(reconciler, virtualNode)
@@ -128,6 +145,11 @@ end
 function RobloxRenderer.updateHostNode(reconciler, virtualNode, newElement)
 	local oldProps = virtualNode.currentElement.props
 	local newProps = newElement.props
+
+	-- Suspend event listeners for the node so we don't get events firing during reconciliation
+	if virtualNode.eventManager ~= nil then
+		virtualNode.eventManager:suspend()
+	end
 
 	-- If refs changed, detach the old ref and attach the new one
 	if oldProps[Ref] ~= newProps[Ref] then
@@ -152,6 +174,11 @@ function RobloxRenderer.updateHostNode(reconciler, virtualNode, newElement)
 	end
 
 	reconciler.updateVirtualNodeChildren(virtualNode, virtualNode.hostObject, newElement.props[Children])
+
+	-- Resume event firing now that everything's updated successfully
+	if virtualNode.eventManager ~= nil then
+		virtualNode.eventManager:resume()
+	end
 
 	return virtualNode
 end

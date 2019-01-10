@@ -28,17 +28,6 @@ end
 function bindingPrototype:getValue()
 	local internalData = self[InternalData]
 
-	--[[
-		If our source is another binding but we're not subscribed, we'll
-		return the mapped value from our upstream binding.
-
-		This allows us to avoid subscribing to our source until someone
-		has subscribed to us, and avoid creating dangling connections.
-	]]
-	if internalData.upstreamBinding ~= nil and internalData.upstreamDisconnect == nil then
-		return internalData.valueTransform(internalData.upstreamBinding:getValue())
-	end
-
 	return internalData.value
 end
 
@@ -49,7 +38,10 @@ function bindingPrototype:map(valueTransform)
 	local binding = Binding.create(valueTransform(self:getValue()))
 
 	binding[InternalData].valueTransform = valueTransform
-	binding[InternalData].upstreamBinding = self
+	-- Subscribe to upstream binding
+	binding[InternalData].upstreamDisconnect = Binding.subscribe(self, function(value)
+		Binding.update(binding, value)
+	end)
 
 	return binding
 end
@@ -72,43 +64,38 @@ end
 function Binding.subscribe(binding, handler)
 	local internalData = binding[InternalData]
 
-	--[[
-		If this binding is mapped to another and does not have any subscribers,
-		we need to create a subscription to our source binding so that updates
-		get passed along to us
-	]]
-	if internalData.upstreamBinding ~= nil and internalData.subscriberCount == 0 then
-		internalData.upstreamDisconnect = Binding.subscribe(internalData.upstreamBinding, function(value)
-			Binding.update(binding, value)
-		end)
-	end
-
 	local disconnect = internalData.changeSignal:subscribe(handler)
 	internalData.subscriberCount = internalData.subscriberCount + 1
 
-	local disconnected = false
-
 	--[[
-		We wrap the disconnect function so that we can manage our subscriptions
-		when the disconnect is triggered
+		If we're subscribed to an upstream binding (from calling `map`), we need
+		to make sure to clean up that subscription in our own disconnect function
 	]]
-	return function()
-		if disconnected then
-			return
-		end
+	if internalData.upstreamDisconnect ~= nil then
+		local disconnected = false
 
-		disconnected = true
-		disconnect()
-		internalData.subscriberCount = internalData.subscriberCount - 1
+		return function()
+			if disconnected then
+				return
+			end
 
-		--[[
-			If our subscribers count drops to 0, we can safely unsubscribe from
-			our source binding
-		]]
-		if internalData.subscriberCount == 0 and internalData.upstreamDisconnect ~= nil then
-			internalData.upstreamDisconnect()
-			internalData.upstreamDisconnect = nil
+			--[[
+				Disconnect from upstream connection
+			]]
+			if internalData.upstreamDisconnect ~= nil then
+				internalData.upstreamDisconnect()
+				--[[
+					We need to nil-ify this so that any other subscriptions won't also
+					try to disconnect it again later
+				]]
+				internalData.upstreamDisconnect = nil
+			end
+
+			disconnect()
+			disconnected = true
 		end
+	else
+		return disconnect
 	end
 end
 
@@ -126,7 +113,6 @@ function Binding.create(initialValue)
 			subscriberCount = 0,
 
 			valueTransform = identity,
-			upstreamBinding = nil,
 			upstreamDisconnect = nil,
 		},
 	}

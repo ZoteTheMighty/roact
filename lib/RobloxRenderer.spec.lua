@@ -177,6 +177,40 @@ return function()
 				expect(message:find("RobloxRenderer%.spec")).to.be.ok()
 			end)
 		end)
+
+		itFOCUS("should resolve bindings to bindings to bindings to...", function()
+			local parent = Instance.new("Folder")
+			local key = "Some Key"
+
+			local binding, update = Binding.create(10)
+			local bindingToBinding, updateBindingToBinding = Binding.create(binding)
+			local bindingToBindingToBinding, _ = Binding.create(bindingToBinding)
+			local element = createElement("IntValue", {
+				Value = bindingToBindingToBinding,
+			})
+
+			local node = reconciler.createVirtualNode(element, parent, key)
+
+			RobloxRenderer.mountHostNode(reconciler, node)
+
+			expect(#parent:GetChildren()).to.equal(1)
+
+			local instance = parent:GetChildren()[1]
+
+			expect(instance.ClassName).to.equal("IntValue")
+			expect(instance.Value).to.equal(10)
+
+			update(20)
+
+			expect(instance.Value).to.equal(20)
+
+			local newBinding, _ = Binding.create(30)
+			updateBindingToBinding(newBinding)
+
+			expect(instance.Value).to.equal(30)
+
+			RobloxRenderer.unmountHostNode(reconciler, node)
+		end)
 	end)
 
 	describe("updateHostNode", function()

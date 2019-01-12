@@ -58,29 +58,61 @@ local function setRobloxInstanceProperty(hostObject, key, newValue)
 end
 
 local function removeBinding(virtualNode, key)
-	local disconnect = virtualNode.bindings[key]
-	disconnect()
+	local subscriptions = virtualNode.bindings[key]
+	for _, disconnect in ipairs(subscriptions) do
+		disconnect()
+	end
 	virtualNode.bindings[key] = nil
 end
 
 local function attachBinding(virtualNode, key, newBinding)
-	local function updateBoundProperty(newValue)
-		setRobloxInstanceProperty(virtualNode.hostObject, key, newValue)
-	end
-
 	if virtualNode.bindings == nil then
 		virtualNode.bindings = {}
 	end
 
-	virtualNode.bindings[key] = Binding.subscribe(newBinding, updateBoundProperty)
+	local subscriptions = {}
 
-	setRobloxInstanceProperty(virtualNode.hostObject, key, newBinding:getValue())
+	local function getUpdater(depth)
+		return function(newValue)
+			while Type.of(newValue) == Type.Binding do
+				depth = depth + 1
+
+				if subscriptions[depth] ~= nil then
+					subscriptions[depth]()
+				end
+				subscriptions[depth] = Binding.subscribe(newValue, getUpdater(depth+1))
+
+				newValue = newValue:getValue()
+			end
+
+			-- If there are any remaining subscriptions, clear them
+			for i = depth, #subscriptions do
+				subscriptions[i]()
+				subscriptions[i] = nil
+			end
+
+			setRobloxInstanceProperty(virtualNode.hostObject, key, newValue)
+		end
+	end
+
+	local value = newBinding
+	while Type.of(value) == Type.Binding do
+		local depth = #subscriptions + 1
+		subscriptions[depth] = Binding.subscribe(value, getUpdater(depth))
+
+		value = value:getValue()
+	end
+
+	virtualNode.bindings[key] = subscriptions
+	setRobloxInstanceProperty(virtualNode.hostObject, key, value)
 end
 
 local function detachAllBindings(virtualNode)
 	if virtualNode.bindings ~= nil then
-		for _, disconnect in pairs(virtualNode.bindings) do
-			disconnect()
+		for _, subscriptions in pairs(virtualNode.bindings) do
+			for _, disconnect in ipairs(subscriptions) do
+				disconnect()
+			end
 		end
 	end
 end

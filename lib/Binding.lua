@@ -1,3 +1,7 @@
+--[[
+	Functionality for Roact's Bindings feature. Wraps values with subscribable objects
+	that can update outside of Roact reconciliation.
+]]
 local createSignal = require(script.Parent.createSignal)
 local Symbol = require(script.Parent.Symbol)
 local Type = require(script.Parent.Type)
@@ -110,9 +114,16 @@ function Binding.create(initialValue)
 		[InternalData] = {
 			value = initialValue,
 			changeSignal = createSignal(),
-			subscriberCount = 0,
 
 			valueTransform = identity,
+
+			--[[
+				For mapped bindings, we need to track our subscriptions and our
+				upstream binding in order to avoid leaking memory. Otherwise, the
+				garbage collector won't be able to clean up our subscriptions.
+			]]
+			subscriberCount = 0,
+			upstreamBinding = nil,
 			upstreamDisconnect = nil,
 		},
 	}

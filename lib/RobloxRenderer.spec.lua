@@ -178,7 +178,7 @@ return function()
 			end)
 		end)
 
-		itFOCUS("should resolve bindings to bindings to bindings to...", function()
+		it("should resolve bindings to bindings to bindings to...", function()
 			local parent = Instance.new("Folder")
 			local key = "Some Key"
 
@@ -204,10 +204,21 @@ return function()
 
 			expect(instance.Value).to.equal(20)
 
-			local newBinding, _ = Binding.create(30)
+			-- Now let's try updating the middle binding's value to a different binding
+			local newBinding, updateNewBinding = Binding.create(30)
 			updateBindingToBinding(newBinding)
 
 			expect(instance.Value).to.equal(30)
+
+			-- Why not yet another binding layer!?
+			updateNewBinding(Binding.create(40))
+
+			expect(instance.Value).to.equal(40)
+
+			-- Finally, let's shorten the chain of bindings and make sure we're still good
+			updateBindingToBinding(50)
+
+			expect(instance.Value).to.equal(50)
 
 			RobloxRenderer.unmountHostNode(reconciler, node)
 		end)

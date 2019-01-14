@@ -85,8 +85,8 @@ local function attachBinding(virtualNode, key, newBinding)
 				newValue = newValue:getValue()
 			end
 
-			-- If there are any remaining subscriptions, clear them
-			for i = depth, #subscriptions do
+			-- If there are remaining subscriptions further down the list, clear them
+			for i = depth + 1, #subscriptions do
 				subscriptions[i]()
 				subscriptions[i] = nil
 			end

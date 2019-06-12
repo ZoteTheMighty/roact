@@ -71,6 +71,10 @@ end
 
 local function attachBinding(virtualNode, key, newBinding)
 	local function updateBoundProperty(newValue)
+		if Type.of(newValue) == Type.Binding then
+			return updateBoundProperty(newValue:getValue())
+		end
+
 		local success, errorMessage = xpcall(function()
 			setRobloxInstanceProperty(virtualNode.hostObject, key, newValue)
 		end, identity)
